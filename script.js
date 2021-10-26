@@ -52,8 +52,7 @@ function startCountDown(duration, element) {
     }
   }, 1000);
 }
-
-window.onload = function () {
+document.getElementById("startbtn").addEventListener("click", function () {
   let time_minutes = 1; // Value in minutes
   let time_seconds = 30; // Value in seconds
 
@@ -65,19 +64,34 @@ window.onload = function () {
   )}`;
 
   startCountDown(--duration, element);
-};
+});
 
 //炸彈
 
 function showSoil() {
-    var foo = document.getElementById("soilss");
-    
-  foo.style["background-color"] = "#FAF0E6";
-  document.getElementById("board").innerHTML = "You found one! there is another!"
+  var foo = document.getElementById("soilss");
+
+  foo.style["background-color"] = "#DAA520";
+  document.getElementById("board").innerHTML = "Ke~Ching! It's a gold!";
+  alert("Ke~Ching! It's a gold!");
 }
 
 function showBomb() {
   var foo = document.getElementById("bomb");
   foo.style["background-color"] = "#DAA520";
-  document.getElementById("board").innerHTML = "You found all two gold! Have a great day~."
+  document.getElementById("board").innerHTML = "Ke~Ching! It's a gold!";
+  alert("Ke~Ching! It's a gold!");
+}
+
+var grid, i;
+grid = document.querySelectorAll("[id='soil']");
+for (i = 0; i < grid.length; i++) {
+  grid[i].addEventListener("click", function (event) {
+    let clicked = event.target;
+    if ((clicked.id = "soil")) {
+      clicked.style["background-color"] = "rgba(250, 240, 230,0.9)";
+      document.getElementById("board").innerHTML =
+        "C'mon! Dig it till u make it";
+    }
+  });
 }
